@@ -1,0 +1,23 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name offtime.archeo.cn;
+
+    root /var/www/offtime.archeo.cn;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /downloads/ {
+        default_type application/vnd.android.package-archive;
+        try_files $uri =404;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff2?)$ {
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000, immutable";
+        try_files $uri =404;
+    }
+}
