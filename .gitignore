@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+build/
+app/build/
+local.properties
+*.iml
+*.apk
+!website/downloads/*.apk
+*.aab
+release-signing/
+node_modules/
+dist/
+.env
+.env.*
+*.local
+*.log
+.DS_Store
